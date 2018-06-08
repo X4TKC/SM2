@@ -38,9 +38,9 @@ public class LibroWebApp {
 
     @DELETE
     @Path("/borrar/{correo}")
-    public javax.ws.rs.core.Response borrarUsuario(@PathParam("correo") String correo2) {
+    public javax.ws.rs.core.Response borrarUsuario(@PathParam("correo") String correo) {
         Database b = new Database();
-        int   res= b.delete(correo2);
+        int   res= b.delete(correo);
         return  javax.ws.rs.core.Response
                 .status(200)
                 .entity(res)

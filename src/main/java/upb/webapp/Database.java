@@ -78,7 +78,7 @@ public class Database {
 			transaction = manager.getTransaction();
 			transaction.begin();
 
-			Productos usuarioborr = manager.find(Productos.class, correo);
+			Usuario usuarioborr = manager.find(Usuario.class, correo);
 			// System.out.println(usuarioborr.toString());
 
 			if (usuarioborr != null) {
