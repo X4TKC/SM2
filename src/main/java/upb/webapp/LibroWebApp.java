@@ -23,6 +23,41 @@ public class LibroWebApp {
                 .entity(usr)
                 .build();
     }
+    @POST
+    @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public javax.ws.rs.core.Response login(Usuario usuario){
+        Database b = new Database();
+        Usuario res = b.auth(usuario.getCorreo(), usuario.getContrasena());
+        return javax.ws.rs.core.Response
+                .status(200)
+                .entity(res)
+                .build();
+    }
+
+    @DELETE
+    @Path("/borrar/{correo}")
+    public javax.ws.rs.core.Response borrarUsuario(@PathParam("correo") String correo2) {
+        Database b = new Database();
+        int   res= b.delete(correo2);
+        return  javax.ws.rs.core.Response
+                .status(200)
+                .entity(res)
+                .build();
+
+    }
+
+    @PUT
+    @Path("/PUT/{correo}")
+    public javax.ws.rs.core.Response modificarUsuario(@PathParam("correo") String correo, Usuario usuario) {
+        Database b = new Database();
+        b.modificar(correo, usuario);
+        return javax.ws.rs.core.Response
+                .status(200)
+                .build();
+
+    }
     public  static void main(String [] args) {
         new Database().create("pedro" , "JUHUHJUsad1231", "TJJD", "JJDJD", 75421542, 456123);
         new Database().closeDataBase();

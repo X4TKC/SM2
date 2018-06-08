@@ -6,9 +6,12 @@
 
 	<persistence-unit name="chas"  transaction-type="RESOURCE_LOCAL">
 		<!-- Persistence provider -->
+
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Entity classes -->
 		<class>upb.entity.Usuario</class>
+		<class>upb.entity.Productos</class>
+
 
 		<properties>
 
